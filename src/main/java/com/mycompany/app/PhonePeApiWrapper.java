@@ -85,60 +85,59 @@ public class PhonePeApiWrapper {
         PhonePeApiWrapper apiWrapper = new PhonePeApiWrapper(baseUrl);
 
         String endpointPath = "/v1/oauth/token";
-	String client_credentials = "{ \"MerchantID\": \"AVANSESUBUAT\", \"Salt Key\": \"e22f8806-e244-40d2-9788-06a66b3019a0\", \"Key Index\": 1}";
+		String client_credentials = "{ \"MerchantID\": \"AVANSESUBUAT\", \"Salt Key\": \"e22f8806-e244-40d2-9788-06a66b3019a0\", \"Key Index\": 1}";
         String requestBody = "{ \"client_id\": \"AVANSESUBUAT_2406211117363065519826\", \"client_version\": 1, \"client_secret\": \"ZmVlNTFjNjAtNTcyMC00ZmMxLTliZmItMDA0Yzg3MDRkYzRk\", \"grant_type\": \" + client_credentials + \" }";
 	
         String response = apiWrapper.postRequestToken(endpointPath, requestBody);
         System.out.println("Response from API: " + response);
 
-	String baseUrlSetup = "https://api-preprod.phonepe.com/apis/pg-sandbox";
+        String baseUrlSetup = "https://api-preprod.phonepe.com/apis/pg-sandbox";
         PhonePeApiWrapper apiWrapperSetup = new PhonePeApiWrapper(baseUrlSetup);
-	String endpointPathSetup = "/subscriptions/v2/setup";
-	String requestBodySetup = "{ \"merchantOrderId\": \"MO1709025658932\", \"amount\": 200, \"expireAt\": 1709058548000, \"paymentFlow\": {\"type\": \"SUBSCRIPTION_SETUP\", \"merchantSubscriptionId\": \"MS1709025658932\", \"authWorkflowType\": \"TRANSACTION\", \"amountType\": \"FIXED\", \"maxAmount\": 200, \"frequency\": \"ON_DEMAND\", \"expireAt\": 1737278524000, \"deviceContext\": { \"deviceOS\": \"ANDROID\" }, \"paymentMode\": { \"type\": \"UPI_INTENT\", \"targetApp\" : \"com.Phonepe.app\" }}}";
-	String responseSetup = apiWrapperSetup.postRequestSetup(endpointPathSetup, requestBodySetup);
+		String endpointPathSetup = "/subscriptions/v2/setup";
+		String requestBodySetup = "{ \"merchantOrderId\": \"MO1709025658932\", \"amount\": 200, \"expireAt\": 1709058548000, \"paymentFlow\": {\"type\": \"SUBSCRIPTION_SETUP\", \"merchantSubscriptionId\": \"MS1709025658932\", \"authWorkflowType\": \"TRANSACTION\", \"amountType\": \"FIXED\", \"maxAmount\": 200, \"frequency\": \"ON_DEMAND\", \"expireAt\": 1737278524000, \"deviceContext\": { \"deviceOS\": \"ANDROID\" }, \"paymentMode\": { \"type\": \"UPI_INTENT\", \"targetApp\" : \"com.Phonepe.app\" }}}";
+		String responseSetup = apiWrapperSetup.postRequestSetup(endpointPathSetup, requestBodySetup);
         System.out.println("Response from API: " + responseSetup);
 
-	String baseUrlRedeem = "https://api-preprod.phonepe.com/apis/pg-sandbox";
+        String baseUrlRedeem = "https://api-preprod.phonepe.com/apis/pg-sandbox";
         PhonePeApiWrapper apiWrapperRedeem = new PhonePeApiWrapper(baseUrlRedeem);
-	String endpointPathRedeem = "/subscriptions/v2/redeem";
-	String requestBodyRedeem = "{ \"merchantOrderId\": \"MO1709025658932\" }";
-	String responseRedeem = apiWrapperRedeem.postRequestRedeem(endpointPathRedeem, requestBodyRedeem);
+		String endpointPathRedeem = "/subscriptions/v2/redeem";
+		String requestBodyRedeem = "{ \"merchantOrderId\": \"MO1709025658932\" }";
+		String responseRedeem = apiWrapperRedeem.postRequestRedeem(endpointPathRedeem, requestBodyRedeem);
         System.out.println("Response from API: " + responseRedeem);
 
-	/*
-	ObjectMapper objectMapper = new ObjectMapper();
-	try {
-	    // Parse JSON response into a map or a custom class representing the response structure
-	    Map<String, Object> jsonResponse = objectMapper.readValue(response, new TypeReference<Map<String, Object>>() {});
-    
-	    // Extract relevant fields from the JSON response
-	    boolean success = (boolean) jsonResponse.get("success");
-	    String code = (String) jsonResponse.get("code");
-	    String message = (String) jsonResponse.get("message");
-
-	    // Handle the 'data' object if needed
-	    // Map<String, Object> data = (Map<String, Object>) jsonResponse.get("data");
-
-	    // Print or use the extracted fields
-	    System.out.println("Success: " + success);
-	    System.out.println("Error Code: " + code);
-	    System.out.println("Error Message: " + message);
-
-		if (!success) {
-		    System.out.println("Request failed with error code: " + code);
-		    System.out.println("Error message: " + message);
-		    // Implement error handling logic based on the error code and message
-		} else {
-		    // Process successful response
-		    // Handle data if required
+		/*
+		ObjectMapper objectMapper = new ObjectMapper();
+		try {
+		    // Parse JSON response into a map or a custom class representing the response structure
+		    Map<String, Object> jsonResponse = objectMapper.readValue(response, new TypeReference<Map<String, Object>>() {});
+	    
+		    // Extract relevant fields from the JSON response
+		    boolean success = (boolean) jsonResponse.get("success");
+		    String code = (String) jsonResponse.get("code");
+		    String message = (String) jsonResponse.get("message");
+	
+		    // Handle the 'data' object if needed
+		    // Map<String, Object> data = (Map<String, Object>) jsonResponse.get("data");
+	
+		    // Print or use the extracted fields
+		    System.out.println("Success: " + success);
+		    System.out.println("Error Code: " + code);
+		    System.out.println("Error Message: " + message);
+	
+			if (!success) {
+			    System.out.println("Request failed with error code: " + code);
+			    System.out.println("Error message: " + message);
+			    // Implement error handling logic based on the error code and message
+			} else {
+			    // Process successful response
+			    // Handle data if required
+			}
+		} catch (IOException e) {
+		    e.printStackTrace();
+		    // Handle JSON parsing exception
 		}
-	} catch (IOException e) {
-	    e.printStackTrace();
-	    // Handle JSON parsing exception
-	}
-	*/
+		*/
     }
 
 }
-
 
